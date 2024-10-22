@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="kits_list"
+            type="com.bdpolice.kms.data.model.kits.KitsListResponseItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:padding="10dp"
+            android:background="@drawable/kidslistbg"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content">
+
+
+
+            <TextView
+                android:id="@+id/SerialNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                tools:text = "SL (Eligable)"
+                android:text="@{`SL : `+String.valueOf(kits_list.Serial_VW)+` (`+kits_list.productEligiblity_VW+`)`}"
+                android:textSize="12sp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintEnd_toStartOf="@+id/ArrowIcon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ArrowIcon"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@{kits_list.selected == true ? @drawable/downicon : @drawable/upicon}"
+                tools:src = "@drawable/downicon"
+                app:layout_constraintBottom_toBottomOf="@+id/SerialNumber"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/SerialNumber"/>
+
+            <TextView
+                android:id="@+id/ProductName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textStyle="bold"
+                tools:text="Aligusns goledn muk size M Size CL"
+                android:text="@{kits_list.productName_VW}"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/SerialNumber" />
+
+
+            <TextView
+                android:id="@+id/LastIssueTopText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:maxLines="1"
+                style="@style/TextAppearance.Material3.BodySmall"
+                android:text="@string/last_issue_date"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ProductName"
+                app:layout_constraintWidth_percent=".48" />
+
+
+            <TextView
+                android:id="@+id/LastIssueTopDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/TextAppearance.Material3.BodySmall"
+                android:textStyle="bold"
+                android:maxLines="1"
+                tools:text = "15 JUN 2024"
+                android:text="@{kits_list.lastDate_VW}"
+                android:textColor="@color/color_red_error"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/LastIssueTopText"
+                app:layout_constraintTop_toBottomOf="@+id/LastIssueTopText"
+                app:layout_constraintWidth_percent=".48" />
+
+
+            <TextView
+                android:id="@+id/EligibleDateUpText"
+                android:layout_width="0dp"
+                style="@style/TextAppearance.Material3.BodySmall"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:maxLines="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ProductName"
+                android:text="@string/eligible_date"
+                android:textSize="13sp"
+                app:layout_constraintWidth_percent=".48" />
+
+            <TextView
+                android:id="@+id/EligibleDateUp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:text="@{kits_list.eligibleDate}"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/EligibleDateUpText"
+                app:layout_constraintStart_toStartOf="@+id/EligibleDateUpText"
+                app:layout_constraintTop_toBottomOf="@+id/EligibleDateUpText"
+                tools:text="12 AGU 2025" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ShowMoreView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:visibility="@{kits_list.selected == true ? View.VISIBLE : View.GONE}"
+                tools:visibility="visible"
+                app:layout_constraintTop_toBottomOf="@+id/EligibleDateUp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/EligibleQtyText"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:text="@string/eligible_qty"
+                    app:layout_constraintEnd_toStartOf="@+id/InvoiceQtyText"
+                    style="@style/TextAppearance.Material3.BodySmall"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent=".32" />
+
+                <TextView
+                    android:id="@+id/EligibleQ"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    tools:text="10"
+                    android:text="@{String.valueOf(kits_list.eligibleQuantity_FiscalYear_VW)}"
+                    style="@style/TextAppearance.Material3.BodySmall"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="@+id/EligibleQtyText"
+                    app:layout_constraintTop_toBottomOf="@+id/EligibleQtyText"
+                    app:layout_constraintEnd_toEndOf="@+id/EligibleQtyText" />
+
+
+
+                <TextView
+                    android:id="@+id/InvoiceQtyText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@+id/DueQuantityQtyText"
+                    android:maxLines="1"
+                    app:layout_constraintStart_toEndOf="@+id/EligibleQtyText"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="@string/invoice_qty"
+                    style="@style/TextAppearance.Material3.BodySmall"
+                    app:layout_constraintWidth_percent=".32" />
+
+                <TextView
+                    android:id="@+id/InvoiceQ"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    style="@style/TextAppearance.Material3.BodySmall"
+                    android:textStyle="bold"
+                    android:text="@{String.valueOf(kits_list.invoiceQuantity_FiscalYear_VW)}"
+                    android:maxLines="1"
+                    app:layout_constraintStart_toStartOf="@+id/InvoiceQtyText"
+                    tools:text="50"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="@+id/InvoiceQtyText"
+                    app:layout_constraintTop_toBottomOf="@+id/InvoiceQtyText" />
+
+                <TextView
+                    android:id="@+id/DueQuantityQtyText"
+                    android:layout_width="0dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:text="@string/due_qty"
+                    app:layout_constraintStart_toEndOf="@+id/InvoiceQtyText"
+                    style="@style/TextAppearance.Material3.BodySmall"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintWidth_percent=".32" />
+
+                <TextView
+                    android:id="@+id/DueQ"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    tools:text="100"
+                    android:text="@{String.valueOf(kits_list.dueQuantity_FiscalYear_VW)}"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="@+id/DueQuantityQtyText"
+                    style="@style/TextAppearance.Material3.BodySmall"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@+id/DueQuantityQtyText"
+                    app:layout_constraintEnd_toEndOf="@+id/DueQuantityQtyText" />
+
+
+
+                <TextView
+                    android:id="@+id/LastIssueQtyUpText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    style="@style/TextAppearance.Material3.BodySmall"
+                    android:maxLines="1"
+                    android:text="@string/last_issue_qty"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/EligibleQ"
+                    app:layout_constraintWidth_percent=".48" />
+
+                <TextView
+                    android:id="@+id/LastIssueQUp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    tools:text="20"
+                    android:text="@{String.valueOf(kits_list.quantity_Last_VW)}"
+                    style="@style/TextAppearance.Material3.BodySmall"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="@+id/LastIssueQtyUpText"
+                    app:layout_constraintTop_toBottomOf="@+id/LastIssueQtyUpText"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/LastIssueQtyUpText" />
+
+
+                <com.flod.loadingbutton.LoadingButton
+                    android:id="@+id/CommentBtn"
+                    android:layout_width="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/LastIssueQtyUpText"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#262626"
+                    android:drawablePadding="10dp"
+                    style="@style/TextAppearance.Material3.BodySmall"
+                    android:gravity="center"
+                    app:layout_constraintBottom_toBottomOf="@+id/LastIssueQUp"
+                    android:minHeight="0dp"
+                    android:padding="4dp"
+                    android:text="@string/comment"
+                    android:textColor="@android:color/white"
+                    app:radius="999dp"
+                    app:enableShrink="true"
+                    app:enableRestore="true"
+                    app:loadingDrawablePosition="Start"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SignIn">
+
+        <ImageView
+            android:id="@+id/PoliceIcon"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintHeight_percent=".15"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="0dp"
+            android:src="@drawable/police"
+            android:layout_height="0dp"/>
+
+
+        <TextView
+            android:id="@+id/Welcome"
+            android:layout_marginTop="10dp"
+            android:text="Welcome to KMS"
+            android:textStyle="bold"
+            style="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintWidth_percent=".9"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/PoliceIcon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/Info"
+            android:gravity="center"
+            android:text="Please enter your BP id and password for SignIn"
+            style="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@android:color/darker_gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Welcome"
+            android:layout_width="0dp"
+            app:layout_constraintWidth_percent=".9"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            android:layout_height="wrap_content"/>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/BPInput"
+            app:layout_constraintTop_toBottomOf="@+id/Info"
+            android:layout_width="0dp"
+            android:layout_marginTop="15dp"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="@null"
+            app:hintAnimationEnabled="false"
+            android:background="@drawable/input_style"
+            style="@style/OutlinedRoundBox"
+            app:hintEnabled="false"
+            app:boxStrokeWidth="0dp"
+            app:cursorColor="@color/app_primary"
+            app:boxStrokeWidthFocused="0dp"
+            app:layout_constraintWidth_percent=".9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/EditTextBP"
+                android:hint="@string/enter_bp"
+                android:layout_width="match_parent"
+                android:drawablePadding="8dp"
+                app:hintAnimationEnabled="false"
+                android:gravity="center_vertical"
+                android:drawableStart="@drawable/rounded_person_edit_24"
+                android:background="@null"
+                android:inputType="textEmailAddress"
+                android:backgroundTint="@android:color/transparent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/PasswordInput"
+            app:layout_constraintTop_toBottomOf="@+id/BPInput"
+            android:layout_width="0dp"
+            app:boxBackgroundMode="filled"
+            android:layout_marginTop="10dp"
+            app:boxBackgroundColor="@null"
+            app:passwordToggleEnabled="true"
+            app:hintAnimationEnabled="false"
+            android:background="@drawable/input_style"
+            style="@style/OutlinedRoundBox"
+            app:hintEnabled="false"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:layout_constraintWidth_percent=".9"
+            app:cursorColor="@color/app_primary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/EditTextPassword"
+                android:hint="@string/enter_password"
+                android:layout_width="match_parent"
+                android:drawablePadding="8dp"
+                app:hintAnimationEnabled="false"
+                android:drawableStart="@drawable/rounded_lock_24"
+                android:background="@null"
+                android:inputType="textPassword"
+                android:backgroundTint="@android:color/transparent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/ResetPasswordBtn"
+            android:layout_marginBottom="15dp"
+            android:text="@string/recovery_password"
+            app:layout_constraintTop_toBottomOf="@+id/PasswordInput"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/PasswordInput"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <com.flod.loadingbutton.LoadingButton
+            android:id="@+id/SignInBtn"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/app_primary"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:minHeight="45dp"
+            android:padding="8dp"
+            android:text="@string/sign_in"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/ResetPasswordBtn"
+            app:radius="50dp"
+            app:enableShrink="true"
+            app:enableRestore="true"
+            app:loadingDrawablePosition="Start"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_percent=".9" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

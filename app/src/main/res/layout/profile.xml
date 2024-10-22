@@ -1,0 +1,1218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="profile"
+            type="com.bdpolice.kms.ui.dto.ProfileResponse" />
+        
+        <variable
+            name="logistics"
+            type="com.bdpolice.kms.ui.dto.LogisticsResponse" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/ui_background"
+        tools:context=".ui.home.Profile">
+
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/SwipeRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/ProfileImage"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/profileimageplaceholder"
+                        android:scaleType="fitXY"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintWidth_percent=".4" />
+
+
+
+
+                    <TextView
+                        android:id="@+id/BasicInfoText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:gravity="center"
+                        android:text="@string/profile_info"
+                        android:textColor="@color/app_primary"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ProfileImage"
+                        app:layout_constraintWidth_percent=".95" />
+
+
+                    <TextView
+                        android:id="@+id/BPNumberText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/flex_regular"
+                        android:text="@string/bp_number"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/BasicInfoText"
+                        app:layout_constraintWidth_percent=".95" />
+
+                    <EditText
+                        android:id="@+id/BPNumber"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/searchshopinputbg"
+                        android:editable="false"
+                        android:padding="10dp"
+                        android:text="@{profile.employeeId}"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/BPNumberText"
+                        app:layout_constraintWidth_percent=".95" />
+
+                    <TextView
+                        android:id="@+id/NameText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/flex_regular"
+                        android:text="@string/name"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/BPNumber"
+                        app:layout_constraintWidth_percent=".95" />
+
+                    <EditText
+                        android:id="@+id/Name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/searchshopinputbg"
+                        android:editable="false"
+                        android:text="@{profile.employeeName}"
+                        android:padding="10dp"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/NameText"
+                        app:layout_constraintWidth_percent=".95" />
+
+
+                    <TextView
+                        android:id="@+id/MoreInfoProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="More profile info"
+                        android:textSize="15sp"
+                        android:textColor="@color/app_primary"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/Name" />
+
+                    <ImageView
+                        android:id="@+id/MoreInfoIconBtn"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="5dp"
+                        android:src="@drawable/downicon"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/MoreInfoProfile"
+                        app:layout_constraintWidth_percent=".06"
+                        app:tint="@color/app_primary" />
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/ProfileDetailsDiv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:visibility="gone"
+                        tools:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/MoreInfoIconBtn">
+
+
+                        <TextView
+                            android:id="@+id/GenderText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/flex_regular"
+                            android:text="@string/gender"
+                            android:textSize="15sp"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintWidth_percent=".95" />
+
+                        <EditText
+                            android:id="@+id/Gender"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/searchshopinputbg"
+                            android:editable="false"
+                            android:padding="10dp"
+                            android:text="@{profile.genderName}"
+                            android:textSize="15sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/GenderText"
+                            app:layout_constraintWidth_percent=".95" />
+
+                        <TextView
+                            android:id="@+id/PhoneText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/flex_regular"
+                            android:text="@string/phone"
+                            android:textSize="15sp"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/Gender"
+                            app:layout_constraintWidth_percent=".95" />
+
+                        <EditText
+                            android:id="@+id/Phone"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/searchshopinputbg"
+                            android:editable="false"
+                            android:padding="10dp"
+                            android:text="@{profile.phone}"
+                            android:textSize="15sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/PhoneText"
+                            app:layout_constraintWidth_percent=".95" />
+
+                        <TextView
+                            android:id="@+id/EmailText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/flex_regular"
+                            android:text="@string/email"
+                            android:textSize="15sp"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/Phone"
+                            app:layout_constraintWidth_percent=".95" />
+
+                        <EditText
+                            android:id="@+id/Email"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/searchshopinputbg"
+                            android:editable="false"
+                            android:text="@{profile.email}"
+                            android:padding="10dp"
+                            android:textSize="15sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/EmailText"
+                            app:layout_constraintWidth_percent=".95" />
+
+                        <TextView
+                            android:id="@+id/FathersNameText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/flex_regular"
+                            android:text="@string/fathers_name"
+                            android:textSize="15sp"
+                            android:visibility="gone"
+                            tools:visibility="visible"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/Email"
+                            app:layout_constraintWidth_percent=".95" />
+
+                        <EditText
+                            android:id="@+id/FatherName"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@{profile.fatherName}"
+                            android:visibility="gone"
+                            tools:visibility="visible"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/searchshopinputbg"
+                            android:editable="false"
+                            android:padding="10dp"
+                            android:textSize="15sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/FathersNameText"
+                            app:layout_constraintWidth_percent=".95" />
+
+                        <TextView
+                            android:id="@+id/MothersNameText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/flex_regular"
+                            android:text="@string/mothers_name"
+                            android:textSize="15sp"
+                            android:visibility="gone"
+                            tools:visibility="visible"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/FatherName"
+                            app:layout_constraintWidth_percent=".95" />
+
+                        <EditText
+                            android:id="@+id/MothersName"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/searchshopinputbg"
+                            android:editable="false"
+                            android:padding="10dp"
+                            android:visibility="gone"
+                            android:text="@{profile.motherName}"
+                            tools:visibility="visible"
+                            android:textSize="15sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/MothersNameText"
+                            app:layout_constraintWidth_percent=".95" />
+
+                        <TextView
+                            android:id="@+id/UnitText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/flex_regular"
+                            android:text="@string/unit"
+                            android:textSize="15sp"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/MothersName"
+                            app:layout_constraintWidth_percent=".95" />
+
+                        <EditText
+                            android:id="@+id/Uit"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/searchshopinputbg"
+                            android:editable="false"
+                            android:padding="10dp"
+                            android:text="@{profile.unitName}"
+                            android:textSize="15sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/UnitText"
+                            app:layout_constraintWidth_percent=".95" />
+
+                        <TextView
+                            android:id="@+id/RankText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/flex_regular"
+                            android:text="@string/rank"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/Uit"
+                            app:layout_constraintWidth_percent=".95" />
+
+                        <EditText
+                            android:id="@+id/Rank"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/searchshopinputbg"
+                            android:editable="false"
+                            android:text="@{profile.rankName}"
+                            android:padding="10dp"
+                            android:textSize="15sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/RankText"
+                            app:layout_constraintWidth_percent=".95" />
+
+
+                        <TextView
+                            android:id="@+id/UnitJoiningText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/flex_regular"
+                            android:text="@string/unit_joining"
+                            android:textSize="15sp"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/Rank"
+                            app:layout_constraintWidth_percent=".95" />
+
+                        <EditText
+                            android:id="@+id/UnitJoining"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/searchshopinputbg"
+                            android:editable="false"
+                            android:padding="10dp"
+                            android:text="@{profile.dateOfJoiningPresentUnit}"
+                            android:textSize="15sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/UnitJoiningText"
+                            app:layout_constraintWidth_percent=".95" />
+
+
+
+                        <TextView
+                            android:id="@+id/MobileOTPText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/flex_regular"
+                            android:text="@string/mobile_otp"
+                            android:textSize="15sp"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/UnitJoining"
+                            app:layout_constraintWidth_percent=".95" />
+
+                        <EditText
+                            android:id="@+id/MobileOTP"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/searchshopinputbg"
+                            android:editable="false"
+                            android:padding="10dp"
+                            android:textSize="15sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/MobileOTPText"
+                            app:layout_constraintWidth_percent=".95" />
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/MobileOTP"
+                            app:layout_constraintWidth_percent=".95">
+
+
+
+                            <com.flod.loadingbutton.LoadingButton
+                                android:id="@+id/SaveBtn"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_gravity="center_horizontal"
+                                android:background="@android:color/darker_gray"
+                                android:drawablePadding="10dp"
+                                android:gravity="center"
+                                android:minHeight="45dp"
+                                android:maxLines="1"
+                                android:fontFamily="@font/roboto_medium"
+                                android:padding="8dp"
+                                android:text="@string/update_by_pims"
+                                android:textColor="@android:color/white"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:textSize="12sp"
+                                app:radius="999dp"
+                                app:enableShrink="true"
+                                app:enableRestore="true"
+                                app:loadingDrawablePosition="Start"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintWidth_percent=".45" />
+
+
+
+
+                            <com.flod.loadingbutton.LoadingButton
+                                android:id="@+id/ChangePasswordBtn"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_gravity="center_horizontal"
+                                android:background="@color/app_primary"
+                                android:drawablePadding="10dp"
+                                android:gravity="center"
+                                android:minHeight="45dp"
+                                android:maxLines="1"
+                                android:fontFamily="@font/roboto_medium"
+                                android:padding="8dp"
+                                android:text="@string/recovery_password"
+                                android:textColor="@android:color/white"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:textSize="12sp"
+                                app:radius="999dp"
+                                app:enableShrink="true"
+                                app:enableRestore="true"
+                                app:loadingDrawablePosition="Start"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintWidth_percent=".45" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/LogisticsInfoDiv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ProfileDetailsDiv">
+
+
+                        <TextView
+                            android:id="@+id/LogInfoText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/roboto_bold"
+                            android:gravity="center"
+                            android:text="Logistics Info"
+                            android:textColor="@color/app_primary"
+                            android:textSize="15sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintWidth_percent=".95" />
+
+
+                        <TextView
+                            android:id="@+id/BootText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/flex_regular"
+                            android:text="Shoe (Boot)"
+                            android:textSize="15sp"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/LogInfoText"
+                            app:layout_constraintWidth_percent=".95" />
+
+                        <EditText
+                            android:id="@+id/Boot"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/searchshopinputbg"
+                            android:editable="false"
+                            android:padding="10dp"
+                            android:text="@{logistics.boot_10}"
+                            android:textSize="15sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/BootText"
+                            app:layout_constraintWidth_percent=".95" />
+
+
+                        <TextView
+                            android:id="@+id/ShirtText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/flex_regular"
+                            android:text="T-Shirt"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/Boot"
+                            app:layout_constraintWidth_percent=".95" />
+
+                        <EditText
+                            android:id="@+id/Shirt"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/searchshopinputbg"
+                            android:editable="false"
+                            android:padding="10dp"
+                            android:text="@{logistics.shirt_Uniform_228}"
+                            android:textSize="15sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/ShirtText"
+                            app:layout_constraintWidth_percent=".95" />
+
+
+                        <TextView
+                            android:id="@+id/LogisticsInfoText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:text="More Logistics info"
+                            android:textColor="@color/app_primary"
+                            android:textSize="15sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/Shirt" />
+
+                        <ImageView
+                            android:id="@+id/LogisticsInfoBtn"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="5dp"
+                            android:src="@drawable/downicon"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/LogisticsInfoText"
+                            app:layout_constraintWidth_percent=".06"
+                            app:tint="@color/app_primary" />
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/LogInfoDiv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            tools:visibility="visible"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/LogisticsInfoBtn">
+
+
+                            <TextView
+                                android:id="@+id/JacketText"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/flex_regular"
+                                android:text="Jacket"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintWidth_percent=".95" />
+
+                            <EditText
+                                android:id="@+id/Jacket"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:background="@drawable/searchshopinputbg"
+                                android:editable="false"
+                                android:padding="10dp"
+                                android:textSize="15sp"
+                                android:text="@{logistics.jacket_229}"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/JacketText"
+                                app:layout_constraintWidth_percent=".95" />
+
+
+                            <TextView
+                                android:id="@+id/CanvasShoeText"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/flex_regular"
+                                android:text="Canvas Shoe"
+                                android:textSize="15sp"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/Jacket"
+                                app:layout_constraintWidth_percent=".95" />
+
+                            <EditText
+                                android:id="@+id/CanvasShoe"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="@{logistics.canvasShoe_12}"
+                                android:layout_marginTop="4dp"
+                                android:background="@drawable/searchshopinputbg"
+                                android:editable="false"
+                                android:padding="10dp"
+                                android:textSize="15sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/CanvasShoeText"
+                                app:layout_constraintWidth_percent=".95" />
+
+
+                            <TextView
+                                android:id="@+id/PumpShoeText"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/flex_regular"
+                                android:text="Pump Shoe"
+                                android:textSize="15sp"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/CanvasShoe"
+                                app:layout_constraintWidth_percent=".95" />
+
+                            <EditText
+                                android:id="@+id/PumpShoe"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:background="@drawable/searchshopinputbg"
+                                android:editable="false"
+                                android:padding="10dp"
+                                android:text="@{logistics.pumpShoe_46}"
+                                android:textSize="15sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/PumpShoeText"
+                                app:layout_constraintWidth_percent=".95" />
+
+
+                            <TextView
+                                android:id="@+id/OxfordShoeText"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/flex_regular"
+                                android:text="Oxford Shoe"
+                                android:textSize="15sp"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/PumpShoe"
+                                app:layout_constraintWidth_percent=".95" />
+
+                            <EditText
+                                android:id="@+id/OxfordShoe"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:background="@drawable/searchshopinputbg"
+                                android:editable="false"
+                                android:padding="10dp"
+                                android:textSize="15sp"
+                                android:text="@{logistics.oxfordShoe_36}"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/OxfordShoeText"
+                                app:layout_constraintWidth_percent=".95" />
+
+
+                            <TextView
+                                android:id="@+id/CapText"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/flex_regular"
+                                android:text="Cap"
+                                android:textSize="15sp"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/OxfordShoe"
+                                app:layout_constraintWidth_percent=".95" />
+
+                            <EditText
+                                android:id="@+id/Cap"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:background="@drawable/searchshopinputbg"
+                                android:editable="false"
+                                android:padding="10dp"
+                                android:textSize="15sp"
+                                android:text="@{logistics.capBadge_13}"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/CapText"
+                                app:layout_constraintWidth_percent=".95" />
+
+
+                            <TextView
+                                android:id="@+id/Jersey_CardiganText"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/flex_regular"
+                                android:text="Jersey/Cardigan"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/Cap"
+                                app:layout_constraintWidth_percent=".95" />
+
+                            <EditText
+                                android:id="@+id/JerseyCardigan"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:background="@drawable/searchshopinputbg"
+                                android:editable="false"
+                                android:padding="10dp"
+                                android:text="@{logistics.jersey_Cardigan_80}"
+                                android:textSize="15sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/Jersey_CardiganText"
+                                app:layout_constraintWidth_percent=".95" />
+
+
+                            <TextView
+                                android:id="@+id/CottonVestMaleText"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/flex_regular"
+                                android:text="CottonVest (Male)"
+                                android:textSize="15sp"
+                                android:visibility="gone"
+                                tools:visibility="visible"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/JerseyCardigan"
+                                app:layout_constraintWidth_percent=".95" />
+
+                            <EditText
+                                android:id="@+id/CottonVestMale"
+                                android:layout_width="0dp"
+                                android:text="@{logistics.cottonVestMale_132}"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:background="@drawable/searchshopinputbg"
+                                android:editable="false"
+                                android:padding="10dp"
+                                android:visibility="gone"
+                                tools:visibility="visible"
+                                android:textSize="15sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/CottonVestMaleText"
+                                app:layout_constraintWidth_percent=".95" />
+
+
+                            <TextView
+                                android:id="@+id/CottonVestFemaleText"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/flex_regular"
+                                android:text="CottonVest (Female)"
+                                android:textSize="15sp"
+                                android:visibility="gone"
+                                tools:visibility="visible"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/CottonVestMale"
+                                app:layout_constraintWidth_percent=".95" />
+
+                            <EditText
+                                android:id="@+id/CottonVestFemale"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:background="@drawable/searchshopinputbg"
+                                android:editable="false"
+                                android:padding="10dp"
+                                android:text="@{logistics.cottonVestFemale_131}"
+                                android:visibility="gone"
+                                tools:visibility="visible"
+                                android:textSize="15sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/CottonVestFemaleText"
+                                app:layout_constraintWidth_percent=".95" />
+
+
+                            <TextView
+                                android:id="@+id/UnderwearMaleText"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/flex_regular"
+                                android:text="Underwear (Male)"
+                                android:textSize="15sp"
+                                android:visibility="gone"
+                                tools:visibility="visible"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/CottonVestFemale"
+                                app:layout_constraintWidth_percent=".95" />
+
+                            <EditText
+                                android:id="@+id/UnderwearMale"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:background="@drawable/searchshopinputbg"
+                                android:editable="false"
+                                android:padding="10dp"
+                                android:visibility="gone"
+                                tools:visibility="visible"
+                                android:text="@{logistics.underwearMale_224}"
+                                android:textSize="15sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/UnderwearMaleText"
+                                app:layout_constraintWidth_percent=".95" />
+
+                            <TextView
+                                android:id="@+id/UnderwearFemaleText"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:visibility="gone"
+                                tools:visibility="visible"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/flex_regular"
+                                android:text="Underwear (Female)"
+                                android:textSize="15sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/UnderwearMale"
+                                app:layout_constraintWidth_percent=".95" />
+
+                            <EditText
+                                android:id="@+id/UnderwearFemale"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:visibility="gone"
+                                tools:visibility="visible"
+                                android:background="@drawable/searchshopinputbg"
+                                android:editable="false"
+                                android:padding="10dp"
+                                android:textSize="15sp"
+                                android:text="@{logistics.underwearFemale_223}"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/UnderwearFemaleText"
+                                app:layout_constraintWidth_percent=".95" />
+
+
+                            <TextView
+                                android:id="@+id/RaincoatText"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/flex_regular"
+                                android:text="Raincoat"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/UnderwearFemale"
+                                app:layout_constraintWidth_percent=".95" />
+
+                            <EditText
+                                android:id="@+id/Raincoat"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:background="@drawable/searchshopinputbg"
+                                android:editable="false"
+                                android:padding="10dp"
+                                android:textSize="15sp"
+                                android:text="@{logistics.raincoat_47}"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/RaincoatText"
+                                app:layout_constraintWidth_percent=".95" />
+
+
+                            <TextView
+                                android:id="@+id/AntiRiotHandGlovesText"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/flex_regular"
+                                android:text="Anti-riot Hand Gloves"
+                                android:textSize="15sp"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/Raincoat"
+                                app:layout_constraintWidth_percent=".95" />
+
+                            <EditText
+                                android:id="@+id/AntiRiotHandGloves"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:background="@drawable/searchshopinputbg"
+                                android:editable="false"
+                                android:padding="10dp"
+                                android:text="@{logistics.antiRiotHandGloves_2}"
+                                android:textSize="15sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/AntiRiotHandGlovesText"
+                                app:layout_constraintWidth_percent=".95" />
+
+
+                            <TextView
+                                android:id="@+id/PeakCapTrafficText"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/flex_regular"
+                                android:text="PeakCap (Traffic)"
+                                android:textSize="15sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/AntiRiotHandGloves"
+                                app:layout_constraintWidth_percent=".95" />
+
+                            <EditText
+                                android:id="@+id/PeakCapTraffic"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:background="@drawable/searchshopinputbg"
+                                android:editable="false"
+                                android:padding="10dp"
+                                android:text="@{logistics.peakCapTraffic_194}"
+                                android:textSize="15sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/PeakCapTrafficText"
+                                app:layout_constraintWidth_percent=".95" />
+
+                            <TextView
+                                android:id="@+id/PeakCapOfficersText"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/flex_regular"
+                                android:text="PeakCap (Officers)"
+                                android:textSize="15sp"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/PeakCapTraffic"
+                                app:layout_constraintWidth_percent=".95" />
+
+                            <EditText
+                                android:id="@+id/PeakCapOfficers"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:background="@drawable/searchshopinputbg"
+                                android:editable="false"
+                                android:padding="10dp"
+                                android:textSize="15sp"
+                                android:text="@{logistics.peak_Cap_Tourist_193}"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/PeakCapOfficersText"
+                                app:layout_constraintWidth_percent=".95" />
+
+
+                            <TextView
+                                android:id="@+id/GumbootText"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/flex_regular"
+                                android:text="Gumboot"
+                                android:textSize="15sp"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/PeakCapOfficers"
+                                app:layout_constraintWidth_percent=".95" />
+
+                            <EditText
+                                android:id="@+id/Gumboot"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:background="@drawable/searchshopinputbg"
+                                android:editable="false"
+                                android:padding="10dp"
+                                android:textSize="15sp"
+                                android:text="@{logistics.gumboot_21}"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/GumbootText"
+                                app:layout_constraintWidth_percent=".95" />
+
+
+                            <TextView
+                                android:id="@+id/WeightText"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/flex_regular"
+                                android:text="Weight"
+                                android:textSize="15sp"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/Gumboot"
+                                app:layout_constraintWidth_percent=".95" />
+
+                            <EditText
+                                android:id="@+id/Weight"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:background="@drawable/searchshopinputbg"
+                                android:padding="10dp"
+                                android:textSize="15sp"
+                                android:text="@{logistics.weight}"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/WeightText"
+                                app:layout_constraintWidth_percent=".95" />
+
+
+                            <TextView
+                                android:id="@+id/HeightText"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/flex_regular"
+                                android:text="Height"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/Weight"
+                                app:layout_constraintWidth_percent=".95" />
+
+                            <EditText
+                                android:id="@+id/Height"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:layout_marginBottom="10dp"
+                                android:background="@drawable/searchshopinputbg"
+                                android:padding="10dp"
+                                android:textSize="15sp"
+                                android:text="@{logistics.height}"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/HeightText"
+                                app:layout_constraintWidth_percent=".95" />
+
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/Height"
+                                app:layout_constraintWidth_percent=".95">
+
+                                <com.google.android.material.imageview.ShapeableImageView
+                                    android:id="@+id/LogInfoUpdateBtn"
+                                    android:layout_width="0dp"
+                                    android:visibility="gone"
+                                    tools:visibility="visible"
+                                    android:layout_height="0dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintDimensionRatio="1:.30"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintWidth_percent=".45" />
+
+                                <TextView
+                                    android:id="@+id/UpdateStatusText"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/flex_medium"
+                                    android:gravity="center"
+                                    android:maxLines="1"
+                                    android:singleLine="true"
+                                    android:text="@string/Update"
+                                    android:textColor="@color/white"
+                                    android:textSize="13sp"
+                                    app:layout_constraintBottom_toBottomOf="@+id/LogInfoUpdateBtn"
+                                    app:layout_constraintEnd_toEndOf="@+id/LogInfoUpdateBtn"
+                                    app:layout_constraintStart_toStartOf="@+id/LogInfoUpdateBtn"
+                                    app:layout_constraintTop_toTopOf="@+id/LogInfoUpdateBtn"
+                                    app:layout_constraintWidth_percent=".40" />
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_nav"
+    app:startDestination="@id/Profile">
+
+
+    <fragment
+        android:id="@+id/Notification"
+        android:name="com.bdpolice.kms.ui.home.Announcement"
+        android:label="Announcement"
+        tools:layout="@layout/announcement"/>
+    <fragment
+        android:id="@+id/Profile"
+        android:name="com.bdpolice.kms.ui.home.Profile"
+        android:label="Profile"
+        tools:layout="@layout/profile">
+        <action
+            android:id="@+id/action_Profile_to_changePassword"
+            app:destination="@id/ChangePassword"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/KitsList"
+        android:name="com.bdpolice.kms.ui.home.KitsList"
+        android:label="KitsList"
+        tools:layout="@layout/kitslist">
+        <action
+            android:id="@+id/action_KitsList_to_comment"
+            app:destination="@id/comment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ChangePassword"
+        android:name="com.bdpolice.kms.ui.home.ChangePassword"
+        android:label="Change Password"
+        tools:layout="@layout/changepassword">
+        <action
+            android:id="@+id/action_ChangePassword_to_questionBottomSheet"
+            app:destination="@id/questionBottomSheet" />
+    </fragment>
+    <dialog
+        android:id="@+id/questionBottomSheet"
+        android:name="com.bdpolice.kms.QuestionBottomSheet"
+        android:label="questionbottomsheet"
+        tools:layout="@layout/questionbottomsheet" />
+    <fragment
+        android:id="@+id/videoTutorial"
+        android:name="com.bdpolice.kms.VideoTutorial"
+        android:label="Video Tutorial"
+        tools:layout="@layout/videotutorial" />
+    <dialog
+        android:id="@+id/comment"
+        android:name="com.bdpolice.kms.Comment"
+        android:label="comment"
+        tools:layout="@layout/comment" >
+        <action
+            android:id="@+id/action_comment_to_allComment2"
+            app:destination="@id/allComment" />
+        <argument
+            android:name="kits"
+            app:argType="com.bdpolice.kms.data.model.kits.KitsListResponseItem" />
+    </dialog>
+    <fragment
+        android:id="@+id/allComment"
+        android:name="com.bdpolice.kms.AllComment"
+        android:label="All Comment"
+        tools:layout="@layout/allcomment" >
+        <argument
+            android:name="kits"
+            app:argType="com.bdpolice.kms.data.model.kits.KitsListResponseItem" />
+    </fragment>
+</navigation>

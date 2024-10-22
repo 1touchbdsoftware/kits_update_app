@@ -1,0 +1,298 @@
+<resources>
+    <string name="app_name">KMS</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="profile">Profile</string>
+    <string name="kits_list">Kits List</string>
+    <string name="notification">Notification</string>
+    <string name="enter_bp">Enter BP</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="recovery_password">Recovery Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="Continue">Continue</string>
+    <string name="error">Error</string>
+    <string name="wrong_credentials">Invalid user please check your credentials</string>
+    <string name="video_tutorials">Video tutorials</string>
+    <string name="exit">Exit</string>
+    <string name="last_issue_date">Last Issue Date</string>
+    <string name="eligible_date">Eligible Date</string>
+    <string name="eligible_qty">Eligible Qty</string>
+    <string name="invoice_qty">Invoice Qty</string>
+    <string name="due_qty">Due Qty</string>
+    <string name="last_issue_qty">Last Issue Qty</string>
+    <string name="comment">Comment</string>
+    <string name="profile_info">Profile Info</string>
+
+
+    <string name="ChangePassword">Change Password</string>
+
+    <string name="SelectQuestion">Select security question</string>
+    <string name="SecurityAnsEmpty">Security ans empty</string>
+    <string name="UserEmpty">User empty</string>
+    <string name="PasswordEmpty">Password empty</string>
+    <string name="PasswordNotMatch">Password not match</string>
+    <string name="SignInSuccess">SignIn success</string>
+    <string name="PleaseInputSecurityCode">Please input security info</string>
+    <string name="UnableToSignIn">Unable to SignIn check your internet connection or try again</string>
+    <string name="UnableToInfo">Server failed please check your internet connection and try again</string>
+
+    <string name="NotEligible">Not Eligible</string>
+    <string name="Eligible">Eligible</string>
+    <string name="OnRoute">On Route</string>
+    <string name="Received">Received</string>
+
+    <string-array name="ChangePassword">Change Password</string-array>
+    <string name="Are_you_sure">Are you sure</string>
+    <string name="Do_you_want_to_logout_DryExpress">Do you want to logout?</string>
+    <string name="Cancel">Cancel</string>
+    <string name="Logout">Logout</string>
+    <string name="year_2021">2021-2022</string>
+    <string name="year_2022">2022-2023</string>
+    <string name="year_2023">2023-2024</string>
+
+    <string name="Size">Size</string>
+    <string name="AllComment">All Comment</string>
+    <string name="Input_comment">Input comment</string>
+    <string name="ProfileUpdateProgressMessage">wait for a while profile updating</string>
+    <string name="PasswordChangeMessage">wait for a while for change password</string>
+    <string name="CommentSending">wait for a while comment is sending</string>
+    <string name="Please_wait">Please wait</string>
+    <string name="Signinprogressdetails">wait for a while SignIn your account</string>
+    <string name="GettingUserData">wait for a while checking your account</string>
+    <string name="DataLoading">wait for a while your data is reading</string>
+    <string name="YourLoginKeyIsWrong">Wrong password</string>
+    <string name="List">List</string>
+    <string name="Profile">Profile</string>
+    <string name="Notification">Notification</string>
+
+    <string name="NoInfoBangla">তথ্য নেই</string>
+    <string name="Update">Update</string>
+    <string name="bp_number">BP Number</string>
+    <string name="number">Number</string>
+    <string name="gender">Gender</string>
+    <string name="phone">Phone</string>
+    <string name="email">Email</string>
+    <string name="fathers_name">Father\'s Name</string>
+    <string name="mothers_name">Mother\'s Name</string>
+    <string name="unit">Unit</string>
+    <string name="mobile_otp">Mobile (OTP)</string>
+    <string name="rank">Rank</string>
+    <string name="name">Name</string>
+    <string name="change_password">Change Password</string>
+    <string name="update_by_pims">Update by PIMS</string>
+    <string name="not_satisfied">Not Satisfied</string>
+    <string name="satisfied">Satisfied</string>
+    <string name="submit">Submit</string>
+    <string name="very_satisfied">Very Satisfied</string>
+    <string name="Select_type">Select type</string>
+    <string name="user_full_name">User Full Name</string>
+    <string name="user_name">User Name</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="save">Save</string>
+    <string name="user">BP Number</string>
+    <string name="password">Password</string>
+    <string name="QFatherName">Set security question</string>
+    On
+    <string name="search">Search</string>
+    <string name="Select">Select</string>
+    <string name="NotApplicable">প্রযোজ্য নয়</string>
+    <string name="MaleBangla">পুরুষ</string>
+    <string name="FemaleBangla">নারী</string>
+    <string name="Attention">Attention!</string>
+    <string name="HomeAttentionMessage">Please Check &amp; Input your logistics data. Once you have saved it,
+you cannot change it for this year.
+</string>
+
+    <string name="Video">Video</string>
+    <string name="Ok">Ok</string>
+    <string name="AreYouSure">Are you sure?</string>
+    <string name="UpdateInfoMessage">Do you really want to update your logistics information ? Once you update it, you cannot modify for this year.</string>
+    <string name="Proceed">Proceed</string>
+    <string name="GoBack">Go Back</string>
+    <string name="Tutorials">Tutorials</string>
+    <string name="unit_joining">Unit Joining</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="answer">Answer</string>
+    <string name="no_notification_found">No notification found</string>
+    <string name="security_question">Security Question</string>
+    <string name="send_your_comment">Send Your Comment</string>
+    <string name="product_name">Product Name</string>
+    <string name="enter_comment">Enter comment</string>
+
+    <array name="year">
+        <item>2023-2024</item>
+        <item>2022-2023</item>
+        <item>2021-2022</item>
+    </array>
+
+
+    <array name="JacketSize">
+        <item>তথ্য নেই</item>
+        <item>S (68cm)</item>
+        <item>M (72cm)</item>
+        <item>L (74cm)</item>
+        <item>XL (76cm)</item>
+        <item>XXL (78cm)</item>
+    </array>
+
+    <array name="BootSize">
+        <item>তথ্য নেই</item>
+        <item>5/39</item>
+        <item>6/40</item>
+        <item>7/41</item>
+        <item>8/42</item>
+        <item>9/43</item>
+        <item>10/44</item>
+        <item>11/45</item>
+        <item>12/46</item>
+    </array>
+
+    <array name="TShirtSize">
+        <item>তথ্য নেই</item>
+        <item>S (68cm)</item>
+        <item>M (72cm)</item>
+        <item>L (74cm)</item>
+        <item>XL (76cm)</item>
+        <item>XXL (78cm)</item>
+    </array>
+
+    <array name="CanvasShoeSize">
+        <item>তথ্য নেই</item>
+        <item>5/39</item>
+        <item>6/40</item>
+        <item>7/41</item>
+        <item>8/42</item>
+        <item>9/43</item>
+        <item>10/44</item>
+        <item>11/45</item>
+        <item>12/46</item>
+    </array>
+
+    <array name="PumpShoeSize">
+        <item>তথ্য নেই</item>
+        <item>5/39</item>
+        <item>6/40</item>
+        <item>7/41</item>
+        <item>8/42</item>
+        <item>9/43</item>
+        <item>10/44</item>
+    </array>
+
+
+    <array name="OxfordShoeSize">
+        <item>তথ্য নেই</item>
+        <item>5/39</item>
+        <item>6/40</item>
+        <item>7/41</item>
+        <item>8/42</item>
+        <item>9/43</item>
+        <item>10/44</item>
+        <item>11/45</item>
+        <item>12/46</item>
+    </array>
+
+    <string-array name="CapSize">
+        <item>তথ্য নেই</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+    </string-array>
+
+    <string-array name="Cap">
+        <item>19</item>
+        <item>18</item>
+        <item>28</item>
+    </string-array>
+
+
+    <string-array name="JerseySize">
+        <item>তথ্য নেই</item>
+        <item>S</item>
+        <item>M</item>
+        <item>L</item>
+        <item>XL</item>
+        <item>XXL</item>
+    </string-array>
+
+
+    <string-array name="CottonVestSize">
+        <item>তথ্য নেই</item>
+        <item>M</item>
+        <item>L</item>
+        <item>XL</item>
+        <item>XXL</item>
+    </string-array>
+
+
+    <string-array name="UnderwearSize">
+        <item>তথ্য নেই</item>
+        <item>M</item>
+        <item>L</item>
+        <item>XL</item>
+        <item>XXL</item>
+    </string-array>
+
+
+    <string-array name="RainCoatSize">
+        <item>তথ্য নেই</item>
+        <item>S</item>
+        <item>M</item>
+        <item>L</item>
+        <item>XL</item>
+        <item>XXL</item>
+    </string-array>
+
+
+    <string-array name="GumbootSize">
+        <item>তথ্য নেই</item>
+        <item>5/39</item>
+        <item>6/40</item>
+        <item>7/41</item>
+        <item>8/42</item>
+        <item>9/43</item>
+        <item>10/44</item>
+        <item>11/45</item>
+        <item>12/46</item>
+    </string-array>
+
+    <string-array name="AntiRiotHandGlovesSize">
+        <item>তথ্য নেই</item>
+        <item>S</item>
+        <item>M</item>
+        <item>L</item>
+        <item>XL</item>
+    </string-array>
+
+
+    <string-array name="PeakCapTrafficTouristSize">
+        <item>তথ্য নেই</item>
+        <item>22.5</item>
+        <item>22</item>
+        <item>21.5</item>
+        <item>21</item>
+        <item>23</item>
+        <item>20.5</item>
+    </string-array>
+
+
+    <string-array name="PickCap">
+        <item>তথ্য নেই</item>
+        <item>20.5</item>
+        <item>21</item>
+        <item>21.5</item>
+        <item>22</item>
+        <item>22.5</item>
+        <item>23</item>
+    </string-array>
+</resources>

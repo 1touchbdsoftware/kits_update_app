@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/Video"
+        android:icon="@drawable/rounded_music_video_24"
+        app:iconTint="@color/white"
+        android:title="@string/video_tutorials"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/Logout"
+        android:icon="@drawable/rounded_logout_24"
+        app:iconTint="@color/white"
+        android:title="@string/exit"
+        app:showAsAction="ifRoom" />
+
+</menu>
