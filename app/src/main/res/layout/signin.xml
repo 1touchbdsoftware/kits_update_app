@@ -28,7 +28,7 @@
         <TextView
             android:id="@+id/Welcome"
             android:layout_marginTop="10dp"
-            android:text="Welcome to KMS"
+            android:text="@string/welcome_to_kms"
             android:textStyle="bold"
             style="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintWidth_percent=".9"
@@ -42,7 +42,7 @@
         <TextView
             android:id="@+id/Info"
             android:gravity="center"
-            android:text="Please enter your BP id and password for SignIn"
+            android:text="@string/please_enter_your_bp_id_and_password_for_signin"
             style="@style/TextAppearance.AppCompat.Small"
             android:textColor="@android:color/darker_gray"
             app:layout_constraintStart_toStartOf="parent"

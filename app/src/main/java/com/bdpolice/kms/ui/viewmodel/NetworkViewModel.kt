@@ -13,6 +13,7 @@ import com.bdpolice.kms.ui.repository.logistics.Logistics
 import com.bdpolice.kms.ui.repository.profile.Profile
 import com.bdpolice.kms.ui.repository.questionlist.Question
 import com.bdpolice.kms.ui.repository.signin.SignIn
+import com.bdpolice.kms.ui.repository.token.Token
 import com.bdpolice.kms.utils.NetworkResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -27,8 +28,22 @@ class NetworkViewModel @Inject constructor(
     private val getStringData: GetStringData,
     private val profile: Profile,
     private val logistics: Logistics,
-    private val question: Question
+    private val question: Question,
+    private val token: Token
 ) : ViewModel() {
+
+    //todo token
+   val stateFlowToken: StateFlow<NetworkResult<String>> get() = token.stateFlow
+    fun getToken(data : String){
+        try {
+            viewModelScope.launch(Dispatchers.IO) {
+                token.getToken(data = data)
+            }
+        }catch (e : Exception){
+            e.printStackTrace()
+        }
+    }
+    //todo token
 
     //todo question
     val stateFlowQuestion: StateFlow<NetworkResult<QuestionResponse>> get() = question.stateFlow
@@ -107,23 +122,23 @@ class NetworkViewModel @Inject constructor(
 
     init {
         getQuestion(
-            token = "Bearer yDXvzS6E2rZBLDoWFYRBKkiV61BxDxp5-ji_8X8Omu7a1mWPSQMsCw29yXyHIGZcPo4DvqFbDXABmfhdM8B03-QuP_00b1Nx8t_Frj0_RQYd8rTAJCw_Tg58Y4GEm7WXZg_ieutuVccMwpFvT-x8xGcFHBPUt8s8QNUEDOTc2Glh0F3sC84u5HS3I6vLi34O3wGsOsQhRT63ZjHNABm2PKvroe_dmDNNAEWcdHeNqzwBw8IuzkxHEZLysTRxawSgxUJwzONsvivCEYnHz5EgxgXtoi1WXg33ge3YgDybZXrJio8O7yG3ktn0DoD44nfU"
+            token = "Bearer access_token Zr72IbOx2-YI2Ayr92TP_YVoBbTgWobfvbfxGrRRb2WF_qt6IbhcC9ZP7jsYn6D02J49fRoDt4sgvWsUENBu8dvZunDntJi81KrAlyrkWIY8RA4UvVFCfMCeNRD0295AXFKlCqmljIJbU3XDf71hwSdGwrjIO_Oy_0bzjtnSD0s5Y0KGGezkRRm9iQduJUDbgrmotdj3R-kxDWWV8CSmFw6MJ4fGU7zxg2ojED5accXSsI2aokie_psQQvGXOUpqWLgoCMFbvmS378UStHUoiWyN1rfhILCnYYnZKDybxbU"
         )
 
         getLogistics(
-            token = "Bearer yDXvzS6E2rZBLDoWFYRBKkiV61BxDxp5-ji_8X8Omu7a1mWPSQMsCw29yXyHIGZcPo4DvqFbDXABmfhdM8B03-QuP_00b1Nx8t_Frj0_RQYd8rTAJCw_Tg58Y4GEm7WXZg_ieutuVccMwpFvT-x8xGcFHBPUt8s8QNUEDOTc2Glh0F3sC84u5HS3I6vLi34O3wGsOsQhRT63ZjHNABm2PKvroe_dmDNNAEWcdHeNqzwBw8IuzkxHEZLysTRxawSgxUJwzONsvivCEYnHz5EgxgXtoi1WXg33ge3YgDybZXrJio8O7yG3ktn0DoD44nfU",
-            employeeCode = "0A6D1920-D61B-40D3-A690-DD3A3BC20688"
+            token = "Bearer access_token Zr72IbOx2-YI2Ayr92TP_YVoBbTgWobfvbfxGrRRb2WF_qt6IbhcC9ZP7jsYn6D02J49fRoDt4sgvWsUENBu8dvZunDntJi81KrAlyrkWIY8RA4UvVFCfMCeNRD0295AXFKlCqmljIJbU3XDf71hwSdGwrjIO_Oy_0bzjtnSD0s5Y0KGGezkRRm9iQduJUDbgrmotdj3R-kxDWWV8CSmFw6MJ4fGU7zxg2ojED5accXSsI2aokie_psQQvGXOUpqWLgoCMFbvmS378UStHUoiWyN1rfhILCnYYnZKDybxbU",
+            employeeCode = "53904ffd-1713-455c-98cf-bc30b20635a8"
         )
 
         kitsList(
-            token = "Bearer yDXvzS6E2rZBLDoWFYRBKkiV61BxDxp5-ji_8X8Omu7a1mWPSQMsCw29yXyHIGZcPo4DvqFbDXABmfhdM8B03-QuP_00b1Nx8t_Frj0_RQYd8rTAJCw_Tg58Y4GEm7WXZg_ieutuVccMwpFvT-x8xGcFHBPUt8s8QNUEDOTc2Glh0F3sC84u5HS3I6vLi34O3wGsOsQhRT63ZjHNABm2PKvroe_dmDNNAEWcdHeNqzwBw8IuzkxHEZLysTRxawSgxUJwzONsvivCEYnHz5EgxgXtoi1WXg33ge3YgDybZXrJio8O7yG3ktn0DoD44nfU",
-            employeeCode = "0A6D1920-D61B-40D3-A690-DD3A3BC20688",
+            token = "Bearer access_token Zr72IbOx2-YI2Ayr92TP_YVoBbTgWobfvbfxGrRRb2WF_qt6IbhcC9ZP7jsYn6D02J49fRoDt4sgvWsUENBu8dvZunDntJi81KrAlyrkWIY8RA4UvVFCfMCeNRD0295AXFKlCqmljIJbU3XDf71hwSdGwrjIO_Oy_0bzjtnSD0s5Y0KGGezkRRm9iQduJUDbgrmotdj3R-kxDWWV8CSmFw6MJ4fGU7zxg2ojED5accXSsI2aokie_psQQvGXOUpqWLgoCMFbvmS378UStHUoiWyN1rfhILCnYYnZKDybxbU",
+            employeeCode = "53904ffd-1713-455c-98cf-bc30b20635a8",
             year = "2023"
         )
 
         getProfile(
-            token = "Bearer yDXvzS6E2rZBLDoWFYRBKkiV61BxDxp5-ji_8X8Omu7a1mWPSQMsCw29yXyHIGZcPo4DvqFbDXABmfhdM8B03-QuP_00b1Nx8t_Frj0_RQYd8rTAJCw_Tg58Y4GEm7WXZg_ieutuVccMwpFvT-x8xGcFHBPUt8s8QNUEDOTc2Glh0F3sC84u5HS3I6vLi34O3wGsOsQhRT63ZjHNABm2PKvroe_dmDNNAEWcdHeNqzwBw8IuzkxHEZLysTRxawSgxUJwzONsvivCEYnHz5EgxgXtoi1WXg33ge3YgDybZXrJio8O7yG3ktn0DoD44nfU",
-            employeeCode = "0A6D1920-D61B-40D3-A690-DD3A3BC20688"
+            token = "Bearer access_token Zr72IbOx2-YI2Ayr92TP_YVoBbTgWobfvbfxGrRRb2WF_qt6IbhcC9ZP7jsYn6D02J49fRoDt4sgvWsUENBu8dvZunDntJi81KrAlyrkWIY8RA4UvVFCfMCeNRD0295AXFKlCqmljIJbU3XDf71hwSdGwrjIO_Oy_0bzjtnSD0s5Y0KGGezkRRm9iQduJUDbgrmotdj3R-kxDWWV8CSmFw6MJ4fGU7zxg2ojED5accXSsI2aokie_psQQvGXOUpqWLgoCMFbvmS378UStHUoiWyN1rfhILCnYYnZKDybxbU",
+            employeeCode = "53904ffd-1713-455c-98cf-bc30b20635a8"
         )
 
     }

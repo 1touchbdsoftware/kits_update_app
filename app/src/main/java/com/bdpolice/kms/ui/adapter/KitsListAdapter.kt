@@ -49,6 +49,12 @@ class KitsListAdapter @Inject constructor() : ListAdapter<KitsListResponseItem, 
                 }
             }
         }
+        holder.itemView.setOnClickListener {
+            val position = holder.bindingAdapterPosition
+            if(position != RecyclerView.NO_POSITION){
+                click.onClickViewMore(getItem(position), position)
+            }
+        }
     }
 
 

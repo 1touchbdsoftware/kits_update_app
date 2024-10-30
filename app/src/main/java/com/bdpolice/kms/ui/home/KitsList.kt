@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -43,7 +44,16 @@ class KitsList : Fragment() {
     }
 
     private fun initView() {
+
         binding.apply {
+            RetryBtn.setOnClickListener {
+                viewmodel.kitsList(
+                        token = "Bearer access_token Zr72IbOx2-YI2Ayr92TP_YVoBbTgWobfvbfxGrRRb2WF_qt6IbhcC9ZP7jsYn6D02J49fRoDt4sgvWsUENBu8dvZunDntJi81KrAlyrkWIY8RA4UvVFCfMCeNRD0295AXFKlCqmljIJbU3XDf71hwSdGwrjIO_Oy_0bzjtnSD0s5Y0KGGezkRRm9iQduJUDbgrmotdj3R-kxDWWV8CSmFw6MJ4fGU7zxg2ojED5accXSsI2aokie_psQQvGXOUpqWLgoCMFbvmS378UStHUoiWyN1rfhILCnYYnZKDybxbU",
+                        employeeCode = "53904ffd-1713-455c-98cf-bc30b20635a8",
+                        year = "2023"
+                )
+            }
+
             kitsListAdapter.apply {
                 onClickViewState(object : KitsListAdapter.onClickViewMore {
                     override fun onClickViewMore(item: KitsListResponseItem, position: Int) {
@@ -90,15 +100,33 @@ class KitsList : Fragment() {
                         is NetworkResult.Error -> {
                             SwipeRefreshLayout.isRefreshing = false
                             Log.d(TAG, "error: ${it.message}")
+                            Log.d(TAG, "error: ${it.message}")
+                            ProgressBar.isVisible = false
+                            ErrorMessage.isVisible  = true
+                            RetryBtn.isVisible = true
+                            CloudAnimation.isVisible = true
+                            errorMessage = it.message
                         }
 
                         is NetworkResult.Loading -> {
                             Log.d(TAG, "Loading")
+                            SwipeRefreshLayout.isRefreshing = false
+                            ErrorMessage.isVisible  = false
+                            ProgressBar.isVisible = true
+                            RetryBtn.isVisible = false
+                            CloudAnimation.isVisible = false
+                            Log.d(TAG, "loading: ")
                         }
 
                         is NetworkResult.Success -> {
                             SwipeRefreshLayout.isRefreshing = false
                             kitsListAdapter.submitList(it.data)
+
+                            SwipeRefreshLayout.isRefreshing = false
+                            RetryBtn.isVisible = false
+                            ErrorMessage.isVisible  = false
+                            ProgressBar.isVisible = false
+                            CloudAnimation.isVisible = false
                         }
 
                         is NetworkResult.Empty -> {

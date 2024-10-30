@@ -4,14 +4,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="error_message"
+            type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/ui_background"
         tools:context=".ui.home.KitsList">
+
+
+
+
+        <LinearLayout
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:id="@+id/ProgressBar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <include
+                layout="@layout/kits_shimmer"/>
+
+        </LinearLayout>
+
+
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/SwipeRefreshLayout"
@@ -29,6 +51,67 @@
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/CloudAnimation"
+            android:layout_width="0dp"
+            app:lottie_loop="true"
+            app:layout_constraintBottom_toTopOf="@+id/ErrorMessage"
+            app:lottie_autoPlay="true"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:lottie_fileName="cloud.json"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".25"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="0dp"/>
+
+        <TextView
+            android:id="@+id/ErrorMessage"
+            app:layout_constraintWidth_percent=".9"
+            android:gravity="center"
+            tools:text = "No internet connection please try again"
+            style="@style/TextAppearance.Material3.TitleSmall"
+            android:visibility="gone"
+            android:text="@{error_message}"
+            android:textColor="@android:color/darker_gray"
+            tools:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/RetryBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/CloudAnimation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+        <com.flod.loadingbutton.LoadingButton
+            android:id="@+id/RetryBtn"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/app_primary"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:minHeight="45dp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:fontFamily="@font/roboto_medium"
+            android:padding="8dp"
+            android:text="@string/retrying"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/ErrorMessage"
+            app:radius="999dp"
+            app:enableShrink="true"
+            app:enableRestore="true"
+            app:loadingDrawablePosition="Start"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_percent=".4" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

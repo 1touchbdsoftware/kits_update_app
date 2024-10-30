@@ -24,8 +24,8 @@ import javax.inject.Inject
 
 class SignIn @Inject constructor(
     private val api: API,
-    private val saveStringData: SaveStringData,
-    private val saveBoolData: SaveBoolData
+  //  private val saveStringData: SaveStringData,
+   // private val saveBoolData: SaveBoolData
 ) {
 
     private val mutableStateFlow =
@@ -38,7 +38,7 @@ class SignIn @Inject constructor(
             mutableStateFlow.emit(NetworkResult.Loading())
             val response = api.loginUser(userId = id, password = password)
             if (response.isSuccessful && response.body() != null) {
-                saveData(response.body()!!, viewModelScope)
+            //    saveData(response.body()!!, viewModelScope)
                 mutableStateFlow.emit(NetworkResult.Success(response.body()!!))
             } else if (response.errorBody() != null) {
                 mutableStateFlow.emit(NetworkResult.Error("Something went wrong"))
@@ -52,14 +52,14 @@ class SignIn @Inject constructor(
         }
     }
 
-    private fun saveData(body: SignInResponse, viewModelScope: CoroutineScope) {
+   /* private fun saveData(body: SignInResponse, viewModelScope: CoroutineScope) {
         viewModelScope.launch(Dispatchers.IO) { saveStringData(key = EMPLOYEE_CODE, value = body.EmployeeCode) }
         viewModelScope.launch(Dispatchers.IO) { saveStringData(key = USER_CODE, value = body.UserCode?: "") }
         viewModelScope.launch(Dispatchers.IO) { saveStringData(key = USER_NAME, value = body.UserName) }
         viewModelScope.launch(Dispatchers.IO) { saveStringData(key = USER_FULL_NAME, value = body.UserFullName) }
         viewModelScope.launch(Dispatchers.IO) { saveStringData(key = GROUP_NAME, value = body.GroupName?: "") }
         viewModelScope.launch(Dispatchers.IO) { saveBoolData(key = IS_LOGIN_ACCOUNT, value =  true) }
-    }
+    }*/
 
 
 }
