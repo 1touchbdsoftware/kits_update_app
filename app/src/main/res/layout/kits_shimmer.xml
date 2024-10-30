@@ -15,25 +15,25 @@
             android:layout_height="match_parent">
 
             <include
-                layout="@layout/kits_shimmer_item"/>
+                layout="@layout/kits_list_shimmer"/>
                 <include
-                layout="@layout/kits_shimmer_item"/>
+                layout="@layout/kits_list_shimmer"/>
                 <include
-                layout="@layout/kits_shimmer_item"/>
+                layout="@layout/kits_list_shimmer"/>
                 <include
-                layout="@layout/kits_shimmer_item"/>
+                layout="@layout/kits_list_shimmer"/>
                 <include
-                layout="@layout/kits_shimmer_item"/>
+                layout="@layout/kits_list_shimmer"/>
                 <include
-                layout="@layout/kits_shimmer_item"/>
+                layout="@layout/kits_list_shimmer"/>
                 <include
-                layout="@layout/kits_shimmer_item"/>
+                layout="@layout/kits_list_shimmer"/>
                 <include
-                layout="@layout/kits_shimmer_item"/>
+                layout="@layout/kits_list_shimmer"/>
                 <include
-                layout="@layout/kits_shimmer_item"/>
+                layout="@layout/kits_list_shimmer"/>
                 <include
-                layout="@layout/kits_shimmer_item"/>
+                layout="@layout/kits_list_shimmer"/>
 
         </LinearLayout>
 

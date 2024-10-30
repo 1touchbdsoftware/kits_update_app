@@ -83,11 +83,12 @@ dependencies {
     implementation(libs.datastore)
 
     //todo LoadingButton
-    implementation (libs.loadingbutton)
+    implementation(libs.loadingbutton)
 
     //todo retrofit http request
     implementation(libs.retrofit)
     implementation(libs.convertergson)
+    implementation(libs.converterscalars)
     implementation(libs.okhttp)
 
     //todo alerter
@@ -97,13 +98,19 @@ dependencies {
     implementation(libs.androidx.swiperefreshlayout)
 
     //todo recyclerview
-    implementation (libs.androidx.recyclerview)
+    implementation(libs.androidx.recyclerview)
 
 
-    implementation (libs.androidx.media3.exoplayer)
-   // implementation ("androidx.media3:media3-exoplayer-dash:1.4.1")
-    implementation (libs.androidx.media3.ui)
+    //todo exoplayer android
+    implementation(libs.androidx.media3.exoplayer)
+    implementation(libs.androidx.media3.ui)
+
     //todo facebook shimmer
-    implementation (libs.shimmer)
+    implementation(libs.shimmer)
+
+    //todo popup.dialog
+    implementation(libs.popup.dialog)
+
+    implementation(libs.oopsnointernet)
 
 }

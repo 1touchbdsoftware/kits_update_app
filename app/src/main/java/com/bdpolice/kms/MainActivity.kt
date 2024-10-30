@@ -1,5 +1,6 @@
 package com.bdpolice.kms
 
+import android.app.Dialog
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -12,7 +13,11 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.bdpolice.kms.databinding.ActivityMainBinding
+import com.bdpolice.kms.utils.noInternetConnectionDialog
+import com.saadahmedev.popupdialog.PopupDialog
+import com.saadahmedev.popupdialog.listener.StandardDialogActionListener
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -27,6 +32,10 @@ class MainActivity : AppCompatActivity() {
 
         setUpNavigation()
         initView()
+        noInternetConnectionDialog(
+            activity = this,
+            lifecycle = lifecycle
+        )
     }
 
     private fun initView() {
@@ -74,8 +83,34 @@ class MainActivity : AppCompatActivity() {
                         .build()
                 )
             }
+
+            R.id.Logout -> {
+                logout()
+            }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun logout() {
+        PopupDialog.getInstance(this)
+            .standardDialogBuilder()
+            .createStandardDialog()
+            .setHeading(resources.getString(R.string.Logout))
+            .setDescription(
+               resources.getString(R.string.Logout_details)
+            )
+            .setIcon(R.drawable.rounded_logout_24)
+            .setIconColor(R.color.carbon_grey_500)
+            .build(object : StandardDialogActionListener {
+                override fun onPositiveButtonClicked(dialog: Dialog) {
+                    dialog.dismiss()
+                }
+
+                override fun onNegativeButtonClicked(dialog: Dialog) {
+                    dialog.dismiss()
+                }
+            })
+            .show()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

@@ -6,7 +6,8 @@ import java.lang.annotation.RetentionPolicy
 import javax.inject.Qualifier
 
 
-/*@Qualifier
+@Qualifier
 @MustBeDocumented
-@kotlin.annotation.Retention(AnnotationRetention.RUNTIME)*/
-annotation class Retrofit()
+@kotlin.annotation.Retention(AnnotationRetention.RUNTIME)
+annotation class Token()
+

@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.bdpolice.kms.data.datamanager.DataManager
+import com.bdpolice.kms.data.datamanager.DataManager.TOKEN_KEY
 import com.bdpolice.kms.data.model.signin.SignInData
 import com.bdpolice.kms.databinding.SigninBinding
 import com.bdpolice.kms.ui.viewmodel.DataStoreViewModel
@@ -41,6 +42,29 @@ class SignIn : Fragment() {
 
         initView()
         signInResponse()
+        getToken()
+    }
+
+   private fun getToken(){
+        networkViewModel.getToken(TOKEN_KEY)
+        lifecycleScope.launch { 
+            networkViewModel.stateFlowToken.collect{
+                when(it){
+                    is NetworkResult.Error -> {
+                        Log.d(TAG, "getToken: error ${it.message}")
+                    }
+                    is NetworkResult.Success -> {
+                        Log.d(TAG, "getToken: ${it.data.toString()}")
+                    }
+                    is NetworkResult.Loading -> {
+                        
+                    }
+                    is NetworkResult.Empty -> {
+                        
+                    }
+                }
+            }
+        }
     }
 
     private fun signInResponse(){

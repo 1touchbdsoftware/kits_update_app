@@ -1,14 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Kits Management System</string>
+    <string name="app_name">কিটস ম্যানেজমেন্ট সিস্টেম</string>
 
+    <string name="welcome_to_kms">Welcome to KMS</string>
     <string name="profile">Profile</string>
     <string name="kits_list">Kits List</string>
     <string name="notification">Notification</string>
-    <string name="enter_bp">Enter BP No</string>
-    <string name="enter_password">Enter Password</string>
-    <string name="recovery_password">Reset your Password</string>
-    <string name="sign_in">Sign In</string>
-    <string name="Continue">Continue</string>
+    <string name="enter_bp">বিপি নম্বর লিখুন</string>
+    <string name="enter_password">পাসওয়ার্ড লিখুন</string>
+    <string name="recovery_password">আপনার পাসওয়ার্ড রিসেট করুন</string>
+    <string name="sign_in">সাইন ইন করুন</string>
+    <string name="Continue">চালিয়ে যান</string>
     <string name="error">Error</string>
     <string name="wrong_credentials">Invalid user please check your credentials</string>
     <string name="video_tutorials">Video tutorials</string>
@@ -22,8 +24,10 @@
     <string name="comment">Comment</string>
     <string name="profile_info">Profile Info</string>
 
-
+    <string name="please_enter_your_bp_id_and_password_for_signin">সাইন ইন করার জন্য অনুগ্রহ করে আপনার বিপি আইডি এবং পাসওয়ার্ড লিখুন</string>
     <string name="ChangePassword">Change Password</string>
+    <string name="enter_your_bp_number">আপনার বিপি নম্বর লিখুন</string>
+
 
     <string name="SelectQuestion">Select security question</string>
     <string name="SecurityAnsEmpty">Security ans empty</string>
@@ -81,20 +85,20 @@
     <string name="name">Name</string>
     <string name="change_password">Change Password</string>
     <string name="update_by_pims">Update by PIMS</string>
-    <string name="not_satisfied">Not Satisfied</string>
-    <string name="satisfied">Satisfied</string>
-    <string name="submit">Submit</string>
-    <string name="very_satisfied">Very Satisfied</string>
+    <string name="not_satisfied">সন্তুষ্ট নয়</string>
+    <string name="satisfied">সন্তুষ্ট</string>
+    <string name="submit">জমা দিন</string>
+    <string name="very_satisfied">খুব সন্তুষ্ট</string>
     <string name="Select_type">Select type</string>
     <string name="user_full_name">User Full Name</string>
     <string name="user_name">User Name</string>
-    <string name="current_password">Current Password</string>
-    <string name="new_password">New Password</string>
-    <string name="confirm_password">Confirm Password</string>
-    <string name="save">Save</string>
+    <string name="current_password">বর্তমান পাসওয়ার্ড</string>
+    <string name="new_password">নতুন পাসওয়ার্ড</string>
+    <string name="confirm_password">পাসওয়ার্ড নিশ্চিত করুন</string>
+    <string name="save">সংরক্ষণ করুন</string>
     <string name="user">BP Number</string>
     <string name="password">Password</string>
-    <string name="QFatherName">Set security question</string>
+    <string name="QFatherName">নিরাপত্তা প্রশ্ন সেট করুন</string>
     On
     <string name="search">Search</string>
     <string name="Select">Select</string>
@@ -106,14 +110,15 @@
 you cannot change it for this year.
 </string>
 
-    <string name="Airplane_mode">Airplane mode</string>
-    <string name="Please_turn_off">Please turn off</string>
-    <string name="turned_airplane_mode">You have turned on the airplane mode.</string>
-    <string name="Mobile_data">Mobile data</string>
-    <string name="Wifi">Wifi</string>
-    <string name="Please_turn_on">Please turn on</string>
-    <string name="Connection_check">Check your Internet connection and try again.</string>
-    <string name="No_Internet">No Internet</string>
+
+    <string name="Airplane_mode">বিমান মোড</string>
+    <string name="Please_turn_off">দয়া করে বন্ধ করুন</string>
+    <string name="turned_airplane_mode">আপনি বিমান মোড চালু করেছেন।</string>
+    <string name="Mobile_data">মোবাইল ডেটা</string>
+    <string name="Wifi">ওয়াইফাই</string>
+    <string name="Please_turn_on">অনুগ্রহ করে চালু করুন</string>
+    <string name="Connection_check">আপনার ইন্টারনেট সংযোগ পরীক্ষা করুন এবং আবার চেষ্টা করুন।</string>
+    <string name="No_Internet">ইন্টারনেট নেই</string>
     <string name="Video">Video</string>
     <string name="Ok">Ok</string>
     <string name="AreYouSure">Are you sure?</string>
@@ -123,16 +128,13 @@ you cannot change it for this year.
     <string name="Tutorials">Tutorials</string>
     <string name="unit_joining">Unit Joining</string>
     <string name="forgot_password">Forgot Password</string>
-    <string name="answer">Answer</string>
+    <string name="answer">উত্তর</string>
     <string name="no_notification_found">No notification found</string>
-    <string name="security_question">Security Question List</string>
-    <string name="send_your_comment">Send Your Comment</string>
+    <string name="security_question">নিরাপত্তা প্রশ্ন তালিকা</string>
+    <string name="send_your_comment">আপনার মন্তব্য পাঠান</string>
     <string name="product_name">Product Name</string>
-    <string name="enter_comment">Enter comment</string>
-    <string name="welcome_to_kms">Welcome to KMS</string>
-    <string name="please_enter_your_bp_id_and_password_for_signin">Please enter your BP id and password for Sign In</string>
-    <string name="enter_your_bp_number">Enter your BP Number</string>
-    <string name="retrying">Retrying</string>
+    <string name="enter_comment">মন্তব্য লিখুন</string>
+    <string name="retrying">পুনরায় চেষ্টা করুন</string>
     <array name="year">
         <item>2023-2024</item>
         <item>2022-2023</item>

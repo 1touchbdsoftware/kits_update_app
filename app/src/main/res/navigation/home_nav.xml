@@ -59,7 +59,11 @@
         tools:layout="@layout/comment" >
         <action
             android:id="@+id/action_comment_to_allComment2"
-            app:destination="@id/allComment" />
+            app:destination="@id/allComment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <argument
             android:name="kits"
             app:argType="com.bdpolice.kms.data.model.kits.KitsListResponseItem" />
